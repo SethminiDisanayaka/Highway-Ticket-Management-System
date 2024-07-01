@@ -1,4 +1,4 @@
-package com.example.vehical_service;
+package com.example.ticket_service.contrroller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,16 +6,19 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("api/v1/vehicle")
-public class VehicleController {
+@RequestMapping("api/v1/tickets")
+public class TicketController {
+
     private final RestTemplate restTemplate;
 
-    public VehicleController(RestTemplate restTemplate) {
+    public TicketController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping("/getVehicle")
+    @GetMapping("/getTicket")
     public String get() {
-        return "Hello from Vehicle Service";
+        return "Hello from Customer Service";
     }
+
+
 }
