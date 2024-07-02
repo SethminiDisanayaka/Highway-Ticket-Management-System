@@ -1,6 +1,7 @@
 package com.example.payment_service.dto;
 
-import lk.ijse.payment_service.entity.TicketEntity;
+import com.example.payment_service.entity.TicketEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
