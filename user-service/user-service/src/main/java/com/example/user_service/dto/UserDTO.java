@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class userDTO implements SuperDTO{
+public class UserDTO implements SuperDTO{
     private String userId;
     private String userMail;
     private String userName;
