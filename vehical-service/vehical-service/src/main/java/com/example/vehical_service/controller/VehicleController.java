@@ -1,21 +1,41 @@
 package com.example.vehical_service.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import com.example.vehical_service.dto.VehicleDTO;
+import com.example.vehical_service.service.VehicleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/vehicle")
 public class VehicleController {
-    private final RestTemplate restTemplate;
 
-    public VehicleController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    @Autowired
+    VehicleService vehicleService;
+
+    @PostMapping
+    @RequestMapping("/registerVehicle")
+    public void registerVehicle(@RequestBody VehicleDTO vehicleDTO){
+        vehicleService.registerVehicle(vehicleDTO);
     }
 
-    @GetMapping("/getVehicle")
-    public String get() {
-        return "Hello from Vehicle Service";
+    @PutMapping
+    @RequestMapping("/update/{updateVehicleId}")
+    public void updateVehicle(@PathVariable("updateVehicleId") String updateVehicleID ,@RequestBody VehicleDTO vehicleDTO){
+        vehicleService.updateVehicle(updateVehicleID ,vehicleDTO);
+    }
+
+    @DeleteMapping
+    @RequestMapping("/delete/{deleteVehicleId}")
+    public void deleteVehicle(@PathVariable("/deleteVehicleId") String deleteVehicleId){
+        vehicleService.deleteVehicle(deleteVehicleId);
+    }
+
+    @GetMapping
+    @RequestMapping("/getAllVehicles")
+    public List<VehicleDTO> getAllVehicles(){
+        List<VehicleDTO> allVehicles = vehicleService.getAllVehicles();
+        return allVehicles;
     }
 }
