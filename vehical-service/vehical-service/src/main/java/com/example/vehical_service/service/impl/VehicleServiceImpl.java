@@ -43,6 +43,7 @@ public class VehicleServiceImpl implements VehicleService {
             VehicleEntity updateVehicleEntity = vehicleRepo.findById(updateVehicleId).orElse(null);
             updateVehicleEntity.setVehicleNumber(vehicleDTO.getVehicleNumber());
             updateVehicleEntity.setVehicleType(vehicleDTO.getVehicleType());
+            updateVehicleEntity.setUsers(vehicleDTO.getUsers());
 
             vehicleRepo.save(updateVehicleEntity);
         }else{

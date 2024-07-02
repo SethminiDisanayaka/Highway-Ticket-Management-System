@@ -1,8 +1,6 @@
 package com.example.vehical_service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +16,8 @@ public class VehicleEntity implements SuperEntity{
     private String vehicleId;
     private String vehicleNumber;
     private String vehicleType;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")  // Change the column name here
+    private UserEntity users;
 }
